@@ -1,4 +1,4 @@
-package com.shimhg02.jjan.utilities
+package com.shimhg02.jjan.Util.TouchUtil
 
 import android.view.MotionEvent
 import android.view.View

@@ -30,16 +30,14 @@ import com.enablex.jjan.R;
 import com.shimhg02.jjan.adapter.HorizontalViewAdapter;
 import com.shimhg02.jjan.model.HorizontalViewModel;
 import com.shimhg02.jjan.model.UserModel;
-import com.shimhg02.jjan.utilities.OnDragTouchListener;
+import com.shimhg02.jjan.Util.TouchUtil.OnDragTouchListener;
 import com.google.gson.Gson;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import enx_rtc_android.Controller.EnxActiveTalkerViewObserver;
 import enx_rtc_android.Controller.EnxPlayerView;
