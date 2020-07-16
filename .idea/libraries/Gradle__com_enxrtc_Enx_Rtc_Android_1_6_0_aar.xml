@@ -1,6 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: com.enxrtc:Enx-Rtc-Android:1.6.0@aar">
     <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/318ce3f7c226891bbf8a43bc5e9bfe48/Enx-Rtc-Android-1.6.0/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/318ce3f7c226891bbf8a43bc5e9bfe48/Enx-Rtc-Android-1.6.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/318ce3f7c226891bbf8a43bc5e9bfe48/Enx-Rtc-Android-1.6.0/res" />
     </CLASSES>
