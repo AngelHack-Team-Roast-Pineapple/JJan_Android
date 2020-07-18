@@ -22,6 +22,7 @@
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
@@ -30,7 +31,7 @@
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="face" /><!-- barcode,face,ocr make sure added-->
-        <activity android:name="com.shimhg02.jjan.GameActivity">
+        <activity android:name="com.shimhg02.jjan.network.Socket.SocketCreateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,5 +40,6 @@
         </activity>
         <activity android:name="com.shimhg02.jjan.activity.VideoConferenceActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name="com.shimhg02.jjan.GameActivity"/>
     </application>
 </manifest>

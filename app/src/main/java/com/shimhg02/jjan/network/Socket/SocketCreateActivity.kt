@@ -6,12 +6,16 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import com.enablex.jjan.R
-import com.google.gson.JsonObject
+import com.google.gson.JsonArray
+import com.shimhg02.jjan.GameActivity
 import io.socket.client.IO
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
+import org.jetbrains.anko.startActivity
+import org.json.JSONArray
 import org.json.JSONObject
 import java.net.URISyntaxException
 
@@ -33,7 +37,11 @@ class SocketCreateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_socket)
+        val game_btn = findViewById<Button>(R.id.game_btn)
 
+        game_btn.setOnClickListener{
+           startActivity<GameActivity>()
+        }
         try {
             mSocket = IO.socket(socketURI)
         } catch (e: URISyntaxException) {
@@ -45,8 +53,11 @@ class SocketCreateActivity : AppCompatActivity() {
 
     internal var onMatched: Emitter.Listener = Emitter.Listener { args ->
         runOnUiThread(Runnable {
+            val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
+            val data = args[0] as JSONArray
             try {
-                Toast.makeText(this@SocketCreateActivity,"룸 생성완료입니다.",Toast.LENGTH_SHORT).show()
+                Log.d("asdasd", data.toString())
+                Toast.makeText(this@SocketCreateActivity,"매칭 성공 입니다.",Toast.LENGTH_SHORT).show()
                 mSocket.disconnect()
                 mSocket.off(Socket.EVENT_DISCONNECT, onConnect)
                 finish()
@@ -87,16 +98,15 @@ class SocketCreateActivity : AppCompatActivity() {
     }
 
     val onConnect: Emitter.Listener = Emitter.Listener {
-        val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
-
-        mSocket.emit("createRoom", JSONObject("{roomName: \"노무현\",userToken: \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySUQiOiJzaGltaGcwMiIsInBhc3N3b3JkIjoiRXVWTHlxY0wySGpOdXpRVXdKdGxMQk9DZVVTdEE4VS9HN0E2bnpXYWwreHBkWG5mc09vbWVISGRwQy9CdG1DUkRqM1pFVG9uSXVkUkNkaEtwYmpNVWc9PSIsImxhc3RMb2dpblRpbWUiOiIyMDIwLTA3LTE4VDAzOjM5OjU1LjYzN1oifQ.rQ8DYUZyE_Vguf7b84SGQ6RqX7YprG0q_s3Ccom4cZg\"}"))
-        mSocket.on("matching success", onMatched)
+        mSocket.emit("createRoom", JSONObject("{roomName: \"ㅁㄴ\",userToken: \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySUQiOiJzaGltaGcwMiIsInBhc3N3b3JkIjoiRXVWTHlxY0wySGpOdXpRVXdKdGxMQk9DZVVTdEE4VS9HN0E2bnpXYWwreHBkWG5mc09vbWVISGRwQy9CdG1DUkRqM1pFVG9uSXVkUkNkaEtwYmpNVWc9PSIsImxhc3RMb2dpblRpbWUiOiIyMDIwLTA3LTE4VDAzOjM5OjU1LjYzN1oifQ.rQ8DYUZyE_Vguf7b84SGQ6RqX7YprG0q_s3Ccom4cZg\"}"))
+        mSocket.emit("matchingMeeting", JSONObject("{roomName: \"ㅁㄴ\"}"))
+        mSocket.on("matchingMeeting", onMatched)
     }
 
     override fun onBackPressed() {
         val tempTime = System.currentTimeMillis()
         val intervalTime: Long = tempTime - backPressedTime
-        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
+        if (intervalTime in 0..FINISH_INTERVAL_TIME) {
             mSocket.disconnect()
             mSocket.off()
             mSocket.off(Socket.EVENT_CONNECT, onConnect)

@@ -12,6 +12,7 @@ import com.google.gson.JsonObject
 import io.socket.client.IO
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
+import org.json.JSONArray
 import org.json.JSONObject
 import java.net.URISyntaxException
 
@@ -46,6 +47,9 @@ class GameActivity : AppCompatActivity() {
     internal var onMatched: Emitter.Listener = Emitter.Listener { args ->
         runOnUiThread(Runnable {
             try {
+                val data = args[0] as JSONArray
+                Log.d("asdasd", data.toString())
+                var dataList = data.toString().split("\"")
                 Toast.makeText(this@GameActivity,"룸 생성완료입니다.",Toast.LENGTH_SHORT).show()
                 mSocket.disconnect()
                 mSocket.off(Socket.EVENT_DISCONNECT, onConnect)
@@ -89,8 +93,8 @@ class GameActivity : AppCompatActivity() {
     val onConnect: Emitter.Listener = Emitter.Listener {
         val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
 
-        mSocket.emit("startGameMeeting", JSONObject("{meetingName: \"노무현\",gameName: \"룰렛\"}"))
-        mSocket.on("matching success", onMatched)
+        mSocket.emit("startRoulette", JSONObject(pref.getString("meetRoom","")+",gameName: \"룰렛\"}"))
+        mSocket.on("endRoulette", onMatched)
     }
 
     override fun onBackPressed() {

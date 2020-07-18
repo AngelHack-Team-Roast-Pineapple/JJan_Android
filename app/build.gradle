@@ -11,6 +11,7 @@ android {
         versionCode 1
         versionName "1.1"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -33,6 +34,7 @@ android {
 dependencies {
     def retrofit2_version = "2.9.0"
     def okhttp3_version = "3.14.9"
+    ext.anko_version='0.10.8'
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //noinspection GradleCompatible
@@ -45,6 +47,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    implementation "org.jetbrains.anko:anko:$anko_version"
    // api 'org.webrtc:google-webrtc:1.0.28513'
 //    api('io.socket:socket.io-client:1.0.0') {
 //        exclude group: 'org.json', module: 'json'
