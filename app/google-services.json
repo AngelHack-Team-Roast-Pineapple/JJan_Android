@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "270968450076",
+    "firebase_url": "https://jjan-ad01b.firebaseio.com",
+    "project_id": "jjan-ad01b",
+    "storage_bucket": "jjan-ad01b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270968450076:android:cb1d3969ace809972303d9",
+        "android_client_info": {
+          "package_name": "com.shimhg02.jjan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270968450076-7robom0lh5kt3175hbkhdfpikhjvn1pr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAasvB0cp9vqEKcvBqmcF5bRNXwltA55ek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270968450076-7robom0lh5kt3175hbkhdfpikhjvn1pr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

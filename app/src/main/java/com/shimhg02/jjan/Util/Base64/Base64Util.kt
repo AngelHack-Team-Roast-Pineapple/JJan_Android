@@ -4,7 +4,7 @@ package com.shimhg02.jjan.Util.Base64
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.support.annotation.DrawableRes
+import androidx.annotation.DrawableRes
 import android.util.Base64
 import java.io.BufferedReader
 import java.io.ByteArrayOutputStream

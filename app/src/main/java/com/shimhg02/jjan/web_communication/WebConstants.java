@@ -8,7 +8,7 @@ public class WebConstants {
 
     /*Your webservice host URL, Keet the defined host when kTry = true */
 
-        public static final String kBaseURL = "https://demo.enablex.io/";
+        public static final String kBaseURL = "https://jjan.andy0414.com/";
 
     /*The following information required, Only when kTry = true, When you hosted your own webservice remove these fileds*/
 
