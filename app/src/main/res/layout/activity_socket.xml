@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <Button
-        android:layout_alignParentBottom="true"
+        android:id="@+id/match_btn"
+        android:text="매칭시작"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/invite_btn"
+        android:text="초대하기"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="게임 테스트"
         android:id="@+id/game_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-</RelativeLayout>
+</LinearLayout>

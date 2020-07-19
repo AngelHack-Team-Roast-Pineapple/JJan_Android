@@ -31,7 +31,7 @@
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="face" /><!-- barcode,face,ocr make sure added-->
-        <activity android:name="com.shimhg02.jjan.network.Socket.SocketCreateActivity">
+        <activity android:name="com.shimhg02.jjan.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,6 +40,10 @@
         </activity>
         <activity android:name="com.shimhg02.jjan.activity.VideoConferenceActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name="com.shimhg02.jjan.network.Socket.SocketCreateActivity"/>
         <activity android:name="com.shimhg02.jjan.GameActivity"/>
+        <activity android:name="com.shimhg02.jjan.activity.DashboardActivity"/>
+        <activity android:name="com.shimhg02.jjan.activity.SelectPartyActivity"/>
+        <activity android:name="com.shimhg02.jjan.network.Socket.SocketJoinActivity"/>
     </application>
 </manifest>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:text="본인에 대해 알려주세요"
+        android:layout_marginTop="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:text="닉네임"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:background="@drawable/background_text"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="45dp">
+        <EditText
+            android:padding="15dp"
+            android:background="@android:color/transparent"
+            android:id="@+id/nick_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:text="성별"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:background="@drawable/background_text"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="45dp">
+        <EditText
+            android:padding="15dp"
+            android:background="@android:color/transparent"
+            android:id="@+id/sex_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:text="술게임 실력"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:background="@drawable/background_text"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="45dp">
+        <EditText
+            android:padding="15dp"
+            android:background="@android:color/transparent"
+            android:id="@+id/power_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:text="성격"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:background="@drawable/background_text"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginLeft="45dp">
+        <EditText
+            android:padding="15dp"
+            android:background="@android:color/transparent"
+            android:id="@+id/imotion_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:elevation="2dp"
+        android:background="@drawable/login_btn"
+        android:text="LOG IN"
+        android:textColor="@android:color/white"
+        />
+</LinearLayout>

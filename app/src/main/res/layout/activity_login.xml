@@ -7,6 +7,19 @@
     android:orientation="vertical"
     tools:ignore="ButtonStyle,HardcodedText, ContentDescription, SmallSp">
 
+    <ImageView
+        android:src="@drawable/splash_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:scaleX="0.55"
+        android:scaleY="0.55"
+        android:src="@drawable/splash_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
@@ -36,57 +49,70 @@
                         android:background="@drawable/textinput_login"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginLeft="25dp"
+                        android:textColorHint="#FFF"
+                        android:padding="5dp"
                         android:layout_marginTop="40dp">
 
                         <EditText
-                            android:padding="15dp"
                             android:background="@android:color/transparent"
                             android:id="@+id/id_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
-                            android:textColorHint="#FFF"
-                            android:hint="" />
+                            android:textColor="#FFF"
+                            android:textColorHint="#FFF"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:background="@drawable/textinput_login"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginRight="25dp"
+                        android:textColorHint="#FFF"
+                        android:padding="5dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="20dp">
 
                         <EditText
-                            android:padding="15dp"
                             android:background="@android:color/transparent"
                             android:id="@+id/pw_tv"
+                            style="@style/MyEditTextstyle"
+                            android:textSize="15dp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="" />
+                            android:inputType="textPassword"
+                            android:layout_height="wrap_content"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Button
                         android:id="@+id/login_btn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="60dp"
+                        android:layout_marginLeft="60dp"
                         android:elevation="2dp"
                         android:background="@drawable/login_btn"
                         android:text="LOG IN"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        />
 
-                    <TextView
-                        android:id="@+id/signup_go"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="top"
-                        android:padding="10dp"
-                        android:text="회원이 아니신가요?"/>
                 </LinearLayout>
+
             </RelativeLayout>
         </LinearLayout>
 
     </LinearLayout>
 
-
+    <TextView
+        android:textColor="#000"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginBottom="80dp"
+        android:id="@+id/signup_go"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원이 아니신가요? 회원가입"/>
 
 </RelativeLayout>

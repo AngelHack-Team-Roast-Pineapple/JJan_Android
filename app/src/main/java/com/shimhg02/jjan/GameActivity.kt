@@ -46,14 +46,12 @@ class GameActivity : AppCompatActivity() {
 
     internal var onMatched: Emitter.Listener = Emitter.Listener { args ->
         runOnUiThread(Runnable {
+            Toast.makeText(this@GameActivity,"게임 시작!!!!",Toast.LENGTH_SHORT).show()
+            val data = args[0] as JSONArray
             try {
-                val data = args[0] as JSONArray
-                Log.d("asdasd", data.toString())
-                var dataList = data.toString().split("\"")
-                Toast.makeText(this@GameActivity,"룸 생성완료입니다.",Toast.LENGTH_SHORT).show()
+                Log.d("asdasd1",data.toString())
                 mSocket.disconnect()
                 mSocket.off(Socket.EVENT_DISCONNECT, onConnect)
-                finish()
             } catch (e: Exception) {
                 return@Runnable
             }
@@ -92,8 +90,9 @@ class GameActivity : AppCompatActivity() {
 
     val onConnect: Emitter.Listener = Emitter.Listener {
         val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
-
-        mSocket.emit("startRoulette", JSONObject(pref.getString("meetRoom","")+",gameName: \"룰렛\"}"))
+        System.out.println("LOGD GAME:"+ pref.getString("meetRoom",""))
+        mSocket.emit("startRoulette", JSONObject(pref.getString("meetRoom","")))
+        mSocket.on("startRoulette", onMatched)
         mSocket.on("endRoulette", onMatched)
     }
 

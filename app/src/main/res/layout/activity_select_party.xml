@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_marginBottom="280dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/splash_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:background="@drawable/login_btn"
+        android:layout_marginTop="130dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/party_start"
+        android:text="팟 구성!"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:layout_width="210dp"
+        android:layout_height="80dp"/>
+    <Button
+        android:background="@drawable/login_btn"
+        android:layout_marginTop="360dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/join_start"
+        android:text="참가하기!"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:layout_width="210dp"
+        android:layout_height="80dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="ButtonStyle,HardcodedText, ContentDescription, SmallSp">
+
+    <ImageView
+        android:src="@drawable/splash_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:scaleX="0.55"
+        android:scaleY="0.55"
+        android:src="@drawable/splash_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/cardview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="150dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="80dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="25dp">
+                    <TextView
+                        android:layout_marginTop="210dp"
+                        android:textColor="#000"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="30dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="회원가입"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:background="@drawable/textinput_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="40dp">
+
+                        <EditText
+                            android:padding="15dp"
+                            android:background="@android:color/transparent"
+                            android:id="@+id/id_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:textColorHint="#FFF"
+                            android:hint="" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:background="@drawable/textinput_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="20dp">
+
+                        <EditText
+                            android:padding="15dp"
+                            android:background="@android:color/transparent"
+                            android:id="@+id/pw_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:background="@drawable/textinput_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="20dp">
+
+                        <EditText
+                            android:padding="15dp"
+                            android:background="@android:color/transparent"
+                            android:id="@+id/pw_re_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/login_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="60dp"
+                        android:layout_marginLeft="60dp"
+                        android:elevation="2dp"
+                        android:background="@drawable/login_btn"
+                        android:text="LOG IN"
+                        android:textColor="@android:color/white"
+                        />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:textColor="#000"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginBottom="80dp"
+        android:id="@+id/signin_go"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이미 회원이신가요? 로그인"/>
+
+</RelativeLayout>

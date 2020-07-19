@@ -29,8 +29,9 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener, WebResponse
     private var token: String? = null
     private var sharedPreferences: SharedPreferences? = null
     private var room_Id: String? = null
+    val PREFERENCE = "com.shimhg02.jjan"
     private var radioGroup: RadioGroup? = null
-    private var role = "moderator"
+    private var role = "participant"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dashboard)
@@ -40,16 +41,19 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener, WebResponse
         setClickListener()
         supportActionBar!!.title = "Quick App"
         setSharedPreference()
+        val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
+
+        room_Id = pref.getString("roomID","")
+        if (validations()) {
+            validateRoomIDWebCall()
+        }
     }
 
     override fun onClick(view: View) {
         when (view.id) {
-            R.id.createRoom -> WebCall(this, this, null, WebConstants.getRoomId, WebConstants.getRoomIdCode, false, true).execute()
+            R.id.createRoom -> WebCall(this, this, jsonObjectToSend(), WebConstants.getRoomId, WebConstants.getRoomIdCode, false, true).execute()
             R.id.joinRoom -> {
-                room_Id = roomId!!.text.toString()
-                if (validations()) {
-                    validateRoomIDWebCall()
-                }
+
             }
         }
     }
@@ -66,7 +70,9 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener, WebResponse
     }
 
     private fun validateRoomIDWebCall() {
-        WebCall(this, this, null, WebConstants.validateRoomId + room_Id, WebConstants.validateRoomIdCode, true, false).execute()
+        val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
+        System.out.println("LOGD: " + pref.getString("roomID",""))
+        WebCall(this, this, null, WebConstants.validateRoomId + pref.getString("roomID",""), WebConstants.validateRoomIdCode, true, false).execute()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -114,6 +120,7 @@ ${name!!.text} has invited you to join room with Room Id ${roomId!!.text}"""
 
     private fun onGetTokenSuccess(response: String) {
         Log.e("responseToken", response)
+        val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
         try {
             val jsonObject = JSONObject(response)
             if (jsonObject.optString("result").equals("0", ignoreCase = true)) {
@@ -121,7 +128,7 @@ ${name!!.text} has invited you to join room with Room Id ${roomId!!.text}"""
                 Log.e("token", token)
                 val intent = Intent(this@DashboardActivity, VideoConferenceActivity::class.java)
                 intent.putExtra("token", token)
-                intent.putExtra("name", name!!.text.toString())
+                intent.putExtra("name", pref.getString("name",""))
                 startActivity(intent)
             } else {
                 Toast.makeText(this, jsonObject.optString("error"), Toast.LENGTH_SHORT).show()
@@ -135,7 +142,8 @@ ${name!!.text} has invited you to join room with Room Id ${roomId!!.text}"""
         Log.e("responseDashboard", response)
         try {
             val jsonObject = JSONObject(response)
-            room_Id = jsonObject.optJSONObject("room").optString("room_id")
+            room_Id = jsonObject.optJSONObject("room").optString("room_Id")
+            System.out.println("LOGD: " + room_Id)
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -145,12 +153,13 @@ ${name!!.text} has invited you to join room with Room Id ${roomId!!.text}"""
 
 
     private fun setSharedPreference() {
-        if (sharedPreferences != null) {
-            if (!sharedPreferences!!.getString("name", "").isEmpty()) {
-                name!!.setText(sharedPreferences!!.getString("name", ""))
+        val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
+        if (pref != null) {
+            if (pref.getString("roomID","").isEmpty()) {
+                name!!.setText(pref.getString("name",""))
             }
-            if (!sharedPreferences!!.getString("room_id", "").isEmpty()) {
-                roomId!!.setText(sharedPreferences!!.getString("room_id", ""))
+            if (!pref.getString("roomID","").isEmpty()) {
+                roomId!!.setText(pref.getString("roomID",""))
             }
         }
     }
@@ -160,7 +169,7 @@ ${name!!.text} has invited you to join room with Room Id ${roomId!!.text}"""
         joinRoom!!.setOnClickListener(this)
         radioGroup!!.setOnCheckedChangeListener { radioGroup, i ->
             role = if (i == 0) {
-                "moderator"
+                "participant"
             } else {
                 "participant"
             }
@@ -168,7 +177,9 @@ ${name!!.text} has invited you to join room with Room Id ${roomId!!.text}"""
     }
 
     private fun setView() {
+        val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
         name = findViewById<View>(R.id.name) as EditText
+        name!!.setText(pref.getString("name",""))
         roomId = findViewById<View>(R.id.roomId) as EditText
         createRoom = findViewById<View>(R.id.createRoom) as Button
         joinRoom = findViewById<View>(R.id.joinRoom) as Button
@@ -176,13 +187,14 @@ ${name!!.text} has invited you to join room with Room Id ${roomId!!.text}"""
     }
 
     private fun jsonObjectToSend(): JSONObject {
+        //sharedPreferences?.getString("meetRoom","")
         val jsonObject = JSONObject()
         try {
-            jsonObject.put("name", "Test Dev Room")
+            jsonObject.put("name", "Test Room RTC")
             jsonObject.put("settings", settingsObject)
             jsonObject.put("data", dataObject)
             jsonObject.put("sip", sIPObject)
-            jsonObject.put("owner_ref", "fadaADADAAee")
+            jsonObject.put("owner_ref", "xyz")
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -244,7 +256,7 @@ ${name!!.text} has invited you to join room with Room Id ${roomId!!.text}"""
     private fun savePreferences() {
         val editor = sharedPreferences!!.edit()
         editor.putString("name", name!!.text.toString())
-        editor.putString("room_id", room_Id)
+        editor.putString("roomID", room_Id)
         editor.commit()
     }
 
