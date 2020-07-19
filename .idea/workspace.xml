@@ -17,11 +17,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80854cb2-ef29-4ef1-88fe-5b10603bfc5c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_airbnb_android_lottie_3_4_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_hanks_htextview_base_0_1_6_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_hanks_htextview_evaporate_0_1_6_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_hanks_htextview_fade_0_1_6_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_17_4_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -32,28 +27,25 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_17_2_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/Util/Bases/BaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/Util/Bases/BaseActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/activity/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/activity/LoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/activity/SelectPartyActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/activity/SelectPartyActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/activity/SignUpActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/activity/SignUpActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/activity/VideoConferenceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/activity/VideoConferenceActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/network/Socket/SocketCreateActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/network/Socket/SocketCreateActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/network/Socket/SocketJoinActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/shimhg02/jjan/network/Socket/SocketJoinActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_join.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_join.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_signup.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_singup_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_singup_info.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_socket.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_socket.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_video_conference.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_video_conference.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dashboard.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_XL_API_29_Q_" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_XL_API_28_Pie_" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -70,9 +62,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="layoutResourceFile" />
         <option value="resourceFile" />
         <option value="Kotlin File" />
-        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -86,8 +78,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3_XL_API_29_Q_" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-19T09:28:22.774Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_XL_API_28_Pie_" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-19T14:20:58.765Z" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
@@ -192,46 +184,50 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="650" y="78" width="496" height="964" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1594775887290" />
-    <state x="484" y="322" key="AndroidCreateResourceFileDialog" timestamp="1595144532133">
+    <state x="484" y="322" key="AndroidCreateResourceFileDialog" timestamp="1595166741383">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="484" y="322" key="AndroidCreateResourceFileDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1595144532133" />
-    <state width="1748" height="-12" key="GridCell.Tab.0.bottom" timestamp="1595153749315">
+    <state x="484" y="322" key="AndroidCreateResourceFileDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1595166741383" />
+    <state width="1748" height="-68" key="GridCell.Tab.0.bottom" timestamp="1595168396189">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1748" height="-12" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1595153749315" />
+    <state width="1748" height="-68" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1595168396189" />
     <state width="1748" height="206" key="GridCell.Tab.0.bottom/0.23.1792.1034@0.23.1792.1034" timestamp="1595092352892" />
     <state width="1748" height="115" key="GridCell.Tab.0.bottom/0.23.1792.1037@0.23.1792.1037" timestamp="1595122297860" />
+    <state width="1748" height="287" key="GridCell.Tab.0.bottom/0.23.1792.1041@0.23.1792.1041" timestamp="1595167996328" />
     <state width="1748" height="137" key="GridCell.Tab.0.bottom/0.23.1792.1042@0.23.1792.1042" timestamp="1595153173605" />
     <state width="1748" height="75" key="GridCell.Tab.0.bottom/0.23.1792.1043@0.23.1792.1043" timestamp="1595144795660" />
     <state width="1748" height="147" key="GridCell.Tab.0.bottom/0.23.1792.1045@0.23.1792.1045" timestamp="1595147934214" />
     <state width="1748" height="123" key="GridCell.Tab.0.bottom/0.23.1792.1047@0.23.1792.1047" timestamp="1595150224855" />
-    <state width="1748" height="-12" key="GridCell.Tab.0.center" timestamp="1595153749314">
+    <state width="1748" height="-68" key="GridCell.Tab.0.center" timestamp="1595168396177">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1748" height="-12" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1595153749314" />
+    <state width="1748" height="-68" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1595168396177" />
     <state width="1748" height="206" key="GridCell.Tab.0.center/0.23.1792.1034@0.23.1792.1034" timestamp="1595092352890" />
     <state width="1748" height="115" key="GridCell.Tab.0.center/0.23.1792.1037@0.23.1792.1037" timestamp="1595122297859" />
+    <state width="1748" height="287" key="GridCell.Tab.0.center/0.23.1792.1041@0.23.1792.1041" timestamp="1595167996326" />
     <state width="1748" height="137" key="GridCell.Tab.0.center/0.23.1792.1042@0.23.1792.1042" timestamp="1595153173602" />
     <state width="1748" height="75" key="GridCell.Tab.0.center/0.23.1792.1043@0.23.1792.1043" timestamp="1595144795659" />
     <state width="1748" height="147" key="GridCell.Tab.0.center/0.23.1792.1045@0.23.1792.1045" timestamp="1595147934210" />
     <state width="1748" height="123" key="GridCell.Tab.0.center/0.23.1792.1047@0.23.1792.1047" timestamp="1595150224853" />
-    <state width="1748" height="-12" key="GridCell.Tab.0.left" timestamp="1595153749314">
+    <state width="1748" height="-68" key="GridCell.Tab.0.left" timestamp="1595168396171">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1748" height="-12" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1595153749314" />
+    <state width="1748" height="-68" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1595168396171" />
     <state width="1748" height="206" key="GridCell.Tab.0.left/0.23.1792.1034@0.23.1792.1034" timestamp="1595092352889" />
     <state width="1748" height="115" key="GridCell.Tab.0.left/0.23.1792.1037@0.23.1792.1037" timestamp="1595122297858" />
+    <state width="1748" height="287" key="GridCell.Tab.0.left/0.23.1792.1041@0.23.1792.1041" timestamp="1595167996326" />
     <state width="1748" height="137" key="GridCell.Tab.0.left/0.23.1792.1042@0.23.1792.1042" timestamp="1595153173601" />
     <state width="1748" height="75" key="GridCell.Tab.0.left/0.23.1792.1043@0.23.1792.1043" timestamp="1595144795658" />
     <state width="1748" height="147" key="GridCell.Tab.0.left/0.23.1792.1045@0.23.1792.1045" timestamp="1595147934207" />
     <state width="1748" height="123" key="GridCell.Tab.0.left/0.23.1792.1047@0.23.1792.1047" timestamp="1595150224852" />
-    <state width="1748" height="-12" key="GridCell.Tab.0.right" timestamp="1595153749315">
+    <state width="1748" height="-68" key="GridCell.Tab.0.right" timestamp="1595168396188">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1748" height="-12" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1595153749315" />
+    <state width="1748" height="-68" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1595168396187" />
     <state width="1748" height="206" key="GridCell.Tab.0.right/0.23.1792.1034@0.23.1792.1034" timestamp="1595092352890" />
     <state width="1748" height="115" key="GridCell.Tab.0.right/0.23.1792.1037@0.23.1792.1037" timestamp="1595122297860" />
+    <state width="1748" height="287" key="GridCell.Tab.0.right/0.23.1792.1041@0.23.1792.1041" timestamp="1595167996327" />
     <state width="1748" height="137" key="GridCell.Tab.0.right/0.23.1792.1042@0.23.1792.1042" timestamp="1595153173603" />
     <state width="1748" height="75" key="GridCell.Tab.0.right/0.23.1792.1043@0.23.1792.1043" timestamp="1595144795659" />
     <state width="1748" height="147" key="GridCell.Tab.0.right/0.23.1792.1045@0.23.1792.1045" timestamp="1595147934212" />
@@ -252,9 +248,9 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="461" y="269" width="870" height="582" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1595093398650" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1595152053737">
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1595166059692">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1595152053737" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1595166059692" />
   </component>
 </project>

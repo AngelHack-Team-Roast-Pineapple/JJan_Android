@@ -5,10 +5,23 @@
     android:layout_height="match_parent">
 
     <EditText
+        android:background="@drawable/textinput_join"
+        android:layout_marginTop="150dp"
         android:id="@+id/matchin_etv"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:hint="참여코드"
+        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="60dp"/>
+
     <Button
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:background="@drawable/login_btn"
         android:text="참여하기"
         android:id="@+id/join_btn"
         android:layout_width="match_parent"

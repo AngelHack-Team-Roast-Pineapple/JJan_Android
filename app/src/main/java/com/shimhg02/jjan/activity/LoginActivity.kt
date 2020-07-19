@@ -36,13 +36,15 @@ class LoginActivity : BaseActivity() {
         login_btn.setOnClickListener {
             login()
         }
+        signup_go.setOnClickListener {
+            startActivity<SignUpActivity>()
+        }
     }
 
     private fun login() {
         val login_btn = findViewById<Button>(R.id.login_btn)
         val id_tv = findViewById<EditText>(R.id.id_tv)
         val pw_tv = findViewById<EditText>(R.id.pw_tv)
-        login_btn.isClickable = false
         val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
         val editor = pref.edit()
         Client.retrofitService.logIn(id_tv.text.toString(), pw_tv.text.toString()).enqueue(object : Callback<LogIn> {

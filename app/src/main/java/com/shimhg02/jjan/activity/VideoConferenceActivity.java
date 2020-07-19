@@ -4,6 +4,7 @@ package com.shimhg02.jjan.activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,7 +15,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Handler;
+import android.os.Looper;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -26,6 +31,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.enablex.jjan.R;
 import com.shimhg02.jjan.adapter.HorizontalViewAdapter;
 import com.shimhg02.jjan.model.HorizontalViewModel;
@@ -36,6 +42,7 @@ import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +54,9 @@ import enx_rtc_android.Controller.EnxRoomObserver;
 import enx_rtc_android.Controller.EnxRtc;
 import enx_rtc_android.Controller.EnxStream;
 import enx_rtc_android.Controller.EnxStreamObserver;
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 
 public class VideoConferenceActivity extends AppCompatActivity implements EnxRoomObserver, EnxStreamObserver, View.OnClickListener, EnxReconnectObserver, EnxActiveTalkerViewObserver {
     EnxRtc enxRtc;
@@ -55,8 +65,9 @@ public class VideoConferenceActivity extends AppCompatActivity implements EnxRoo
     EnxPlayerView enxPlayerView;
     FrameLayout moderator;
     FrameLayout participant;
+    LottieAnimationView lottieAnimationView;
     ImageView disconnect;
-    ImageView mute, video, camera, volume;
+    ImageView mute, video, camera, volume, Roulette;
     private TextView audioOnlyText, dummyText;
     EnxRoom enxRooms;
     boolean isVideoMuted = false;
@@ -66,6 +77,7 @@ public class VideoConferenceActivity extends AppCompatActivity implements EnxRoo
     Gson gson;
     EnxStream localStream;
     int PERMISSION_ALL = 1;
+
 
     List<HorizontalViewModel> list;
     private RecyclerView mHorizontalRecyclerView;
@@ -99,6 +111,8 @@ public class VideoConferenceActivity extends AppCompatActivity implements EnxRoo
                 initialize();
             }
         }
+
+
     }
 
     private void initialize() {
@@ -128,6 +142,7 @@ public class VideoConferenceActivity extends AppCompatActivity implements EnxRoo
         video.setOnClickListener(this);
         camera.setOnClickListener(this);
         volume.setOnClickListener(this);
+        Roulette.setOnClickListener(this);
         moderator.setOnTouchListener(new OnDragTouchListener(moderator));
 
         participant.setOnTouchListener(new View.OnTouchListener() {
@@ -145,10 +160,12 @@ public class VideoConferenceActivity extends AppCompatActivity implements EnxRoo
         disconnect = (ImageView) findViewById(R.id.disconnect);
         mute = (ImageView) findViewById(R.id.mute);
         video = (ImageView) findViewById(R.id.video);
+        lottieAnimationView = (LottieAnimationView) findViewById(R.id.animation_view);
         camera = (ImageView) findViewById(R.id.camera);
         volume = (ImageView) findViewById(R.id.volume);
         dummyText = (TextView) findViewById(R.id.dummyText);
         audioOnlyText = (TextView) findViewById(R.id.audioonlyText);
+        Roulette = (ImageView) findViewById(R.id.subway_game);
         rl = (RelativeLayout) findViewById(R.id.rl);
         bottomView = (RelativeLayout) findViewById(R.id.bottomView);
 
@@ -555,8 +572,29 @@ public class VideoConferenceActivity extends AppCompatActivity implements EnxRoo
                     showRadioButtonDialog();
                 }
                 break;
+
+            case R.id.subway_game:
+                System.out.println("LOGD: STARTED");
+
+                SharedPreferences sharedPreferences = getSharedPreferences("com.shimhg02.jjan",MODE_PRIVATE);
+
+                Socket mSocket = null;
+                {
+                    try {
+                        mSocket = IO.socket("https://jjan.andy0414.com");
+                    } catch (URISyntaxException e) {}
+                }
+                mSocket.connect();
+
+                System.out.println("LOGD STRING: "+sharedPreferences.getString("meetIdStr",""));
+                mSocket.on("startRoulette", onGameFinish);
+                mSocket.emit("startRoulette",sharedPreferences.getString("meetIdStr",""));
+                mSocket.on("endRoulette", onGameFinish);
+                break;
         }
     }
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
@@ -724,4 +762,48 @@ public class VideoConferenceActivity extends AppCompatActivity implements EnxRoo
             e.printStackTrace();
         }
     }
+
+    Emitter.Listener onGame = new Emitter.Listener() {
+        @Override
+        public void call(final Object... args) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Log.i("LOGD: ", "run: ");
+                    Log.i("LOGD: ", "run: " + args.length);
+                    JSONObject data = (JSONObject) args[0];
+                    String username;
+                    String message;
+                    String id;
+                    try {
+                        username = data.getString("username");
+                        System.out.println("LOGD: " + username);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+    };
+
+    Emitter.Listener onGameFinish = new Emitter.Listener() {
+        @Override
+        public void call(final Object... args) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("LOGD: ON ON ON" );
+                    System.out.println("LOGD TET :" + args[0]);
+                    String arguments = args[0].toString();
+                    String[] loser = arguments.split("\"");
+                    try {
+                        System.out.println("LOGD TET :" + args[0]);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+    };
+
 }

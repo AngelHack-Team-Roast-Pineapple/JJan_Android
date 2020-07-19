@@ -13,6 +13,14 @@
         android:layout_height="match_parent"
         android:background="#000000" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:lottie_fileName="lottie.json"
+        android:id="@+id/animation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <TextView
         android:id="@+id/dummyText"
         android:layout_width="wrap_content"

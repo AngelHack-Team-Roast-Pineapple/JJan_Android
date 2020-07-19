@@ -62,17 +62,17 @@
                         android:layout_height="45dp"
                         android:layout_marginRight="25dp"
                         android:layout_marginLeft="25dp"
+                        android:padding="5dp"
                         android:layout_marginTop="40dp">
 
                         <EditText
-                            android:padding="15dp"
                             android:background="@android:color/transparent"
                             android:id="@+id/id_tv"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:textSize="15dp"
                             android:textColorHint="#FFF"
-                            android:hint="" />
+                            android:hint="ID" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -81,10 +81,10 @@
                         android:layout_height="45dp"
                         android:layout_marginRight="25dp"
                         android:layout_marginLeft="25dp"
+                        android:padding="5dp"
                         android:layout_marginTop="20dp">
 
                         <EditText
-                            android:padding="15dp"
                             android:background="@android:color/transparent"
                             android:id="@+id/pw_tv"
                             android:layout_width="match_parent"
@@ -92,23 +92,6 @@
                             android:hint="" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:background="@drawable/textinput_login"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginRight="25dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="20dp">
-
-                        <EditText
-                            android:padding="15dp"
-                            android:background="@android:color/transparent"
-                            android:id="@+id/pw_re_tv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="" />
-                    </com.google.android.material.textfield.TextInputLayout>
 
                     <Button
                         android:id="@+id/login_btn"
@@ -119,7 +102,7 @@
                         android:layout_marginLeft="60dp"
                         android:elevation="2dp"
                         android:background="@drawable/login_btn"
-                        android:text="LOG IN"
+                        android:text="다음"
                         android:textColor="@android:color/white"
                         />
 

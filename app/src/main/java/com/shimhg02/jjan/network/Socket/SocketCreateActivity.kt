@@ -2,6 +2,9 @@ package com.shimhg02.jjan.network.Socket
 
 
 import android.R.string
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -39,6 +42,7 @@ class SocketCreateActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         var actionbar = supportActionBar
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         actionbar?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_socket)
@@ -52,6 +56,9 @@ class SocketCreateActivity : AppCompatActivity() {
         }
         var match_btn = findViewById<Button>(R.id.match_btn)
         var lottie_layer = findViewById<RelativeLayout>(R.id.lottie_layer)
+        var invite_btn = findViewById<Button>(R.id.invite_btn)
+        var text_tv = findViewById<TextView>(R.id.text_tv)
+
         mSocket.connect()
         mSocket.on(Socket.EVENT_CONNECT, onConnect)
         match_btn.setOnClickListener {
@@ -60,11 +67,24 @@ class SocketCreateActivity : AppCompatActivity() {
             setTextAnimation()
             setupLottie()
             startMeeting()
+            match_btn.visibility = View.INVISIBLE
+            invite_btn.visibility = View.INVISIBLE
+        }
+        val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
+        invite_btn.setOnClickListener {
+            text_tv.text = pref.getString("invitationCode","")
+        }
+        text_tv.setOnClickListener {
+            val textToCopy = text_tv.text
+            val clip = ClipData.newPlainText("RANDOM UUID",textToCopy)
+            clipboard.primaryClip = clip
+            Toast.makeText(this,"클립보드에 초대코드가 복사되었습니다! 친구에게 보내세요!", Toast.LENGTH_SHORT).show()
         }
     }
 
     var onConnect = Emitter.Listener {
-        mSocket.emit("createRoom",JSONObject("{roomName: \""+ roomIdName+"\",userToken: \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySUQiOiJzaGltaGcwMiIsInBhc3N3b3JkIjoiRXVWTHlxY0wySGpOdXpRVXdKdGxMQk9DZVVTdEE4VS9HN0E2bnpXYWwreHBkWG5mc09vbWVISGRwQy9CdG1DUkRqM1pFVG9uSXVkUkNkaEtwYmpNVWc9PSIsImxhc3RMb2dpblRpbWUiOiIyMDIwLTA3LTE4VDAzOjM5OjU1LjYzN1oifQ.rQ8DYUZyE_Vguf7b84SGQ6RqX7YprG0q_s3Ccom4cZg\"}"))
+        val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
+        mSocket.emit("createRoom",JSONObject("{roomName: \""+ roomIdName+"\",userToken:\""+ pref.getString("userToken","") + "\"}"))
         mSocket.on("createRoom", onCreateRoom)
     }
 
@@ -88,7 +108,12 @@ class SocketCreateActivity : AppCompatActivity() {
             val roomIDString = roomIDJson[1].split("\"")
             val roomId = roomIDString[1]
             val meetRoomData = splitJson[0] +"}"
+            val meetingName = dataName[0].split(",")
+            val meetingNameString = dataName[0].split("\"")
+            System.out.println("LOGD MEET ROOM : " + meetingName[0] + "}")
             editor.putString("roomID",roomId)
+            editor.putString("meetID",meetingName[0] + "}")
+            editor.putString("meetIdStr",meetingNameString[3])
             editor.apply()
 
             try {
@@ -109,6 +134,7 @@ class SocketCreateActivity : AppCompatActivity() {
         animation_view.playAnimation()
         animation_view.loop(true)
     }
+
     fun setTextData(){
         arrMessages.add("처음보는 사람에겐 예의를 지켜주세요!")
         arrMessages.add("두근두근 매칭... 과연 누구랑 될까요?")
@@ -116,6 +142,7 @@ class SocketCreateActivity : AppCompatActivity() {
         arrMessages.add("아 쓸내용이 없다")
         arrMessages.add("옹기잇")
     }
+
     fun setTextAnimation(){
         var anime_text = findViewById<FadeTextView>(R.id.anime_text)
         anime_text.animateText(arrMessages[position])
@@ -136,9 +163,13 @@ class SocketCreateActivity : AppCompatActivity() {
     internal var onCreateRoom: Emitter.Listener = Emitter.Listener { args ->
         runOnUiThread(Runnable {
             val pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE)
+            val editor = pref.edit()
             val data = args[0] as JSONArray
             try {
-                Log.d("asdasd", data.toString())
+                Log.d("asdasd TEST", data.toString())
+                val inviteNum =  data.toString().split("\"")
+                editor.putString("invitationCode", inviteNum[3].toString())
+                editor.apply()
             } catch (e: Exception) {
                 return@Runnable
             }
