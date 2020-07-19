@@ -4,12 +4,16 @@ package com.shimhg02.jjan.network.Socket
 import android.R.string
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
-import android.widget.Button
-import android.widget.Toast
+import android.view.View
+import android.view.Window
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.airbnb.lottie.LottieAnimationView
 import com.enablex.jjan.R
+import com.hanks.htextview.fade.FadeTextView
 import com.shimhg02.jjan.GameActivity
 import com.shimhg02.jjan.activity.DashboardActivity
 import io.socket.client.IO
@@ -30,9 +34,12 @@ class SocketCreateActivity : AppCompatActivity() {
     val PREFERENCE = "com.shimhg02.jjan"
     val socketURI = "https://jjan.andy0414.com"
     var roomIdName = getRandomString(30)
-
+    var arrMessages: ArrayList<String> = ArrayList()
+    var position = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        var actionbar = supportActionBar
+        actionbar?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_socket)
         try {
@@ -44,9 +51,14 @@ class SocketCreateActivity : AppCompatActivity() {
             Log.d("fail", "Failed to connect")
         }
         var match_btn = findViewById<Button>(R.id.match_btn)
+        var lottie_layer = findViewById<RelativeLayout>(R.id.lottie_layer)
         mSocket.connect()
         mSocket.on(Socket.EVENT_CONNECT, onConnect)
         match_btn.setOnClickListener {
+            lottie_layer.visibility = View.VISIBLE
+            setTextData()
+            setTextAnimation()
+            setupLottie()
             startMeeting()
         }
     }
@@ -90,6 +102,36 @@ class SocketCreateActivity : AppCompatActivity() {
             }
         })
     }
+
+    fun setupLottie(){
+        var animation_view = findViewById<LottieAnimationView>(R.id.animation_view)
+        animation_view.setAnimation("beer.json")
+        animation_view.playAnimation()
+        animation_view.loop(true)
+    }
+    fun setTextData(){
+        arrMessages.add("처음보는 사람에겐 예의를 지켜주세요!")
+        arrMessages.add("두근두근 매칭... 과연 누구랑 될까요?")
+        arrMessages.add("개인정보 유출에 조심하세요!")
+        arrMessages.add("아 쓸내용이 없다")
+        arrMessages.add("옹기잇")
+    }
+    fun setTextAnimation(){
+        var anime_text = findViewById<FadeTextView>(R.id.anime_text)
+        anime_text.animateText(arrMessages[position])
+        position++
+        var handler = Handler()
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                handler.postDelayed(this, 5000)
+                if (position >= arrMessages.size) position = 0
+                anime_text.animateText(arrMessages[position])
+                position++
+            }
+        }, 5000)
+    }
+
+
 
     internal var onCreateRoom: Emitter.Listener = Emitter.Listener { args ->
         runOnUiThread(Runnable {

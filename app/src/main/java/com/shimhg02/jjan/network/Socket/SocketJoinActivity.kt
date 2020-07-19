@@ -3,6 +3,7 @@ package com.shimhg02.jjan.network.Socket
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -28,6 +29,8 @@ class SocketJoinActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var actionbar = supportActionBar
+        actionbar?.hide()
         setContentView(R.layout.activity_join)
         try {
             mSocket = IO.socket(socketURI)

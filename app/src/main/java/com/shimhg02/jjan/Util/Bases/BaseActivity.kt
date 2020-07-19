@@ -6,6 +6,8 @@ import android.animation.ValueAnimator
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
+import android.view.Window
+import androidx.appcompat.app.ActionBar
 
 /**
  * @description 베이스 액티비티
@@ -25,6 +27,8 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         instance = this
+        var actionbar = supportActionBar
+        actionbar?.hide()
         setContentView(viewId)
         onCreate()
 

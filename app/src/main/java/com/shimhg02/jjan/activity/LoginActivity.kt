@@ -2,6 +2,7 @@ package com.shimhg02.jjan.activity
 
 
 
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -32,7 +33,6 @@ class LoginActivity : BaseActivity() {
         System.out.println("token Test2 : " + pref.getString("ggToken", ""))
         val login_btn = findViewById<Button>(R.id.login_btn)
         val signup_go = findViewById<TextView>(R.id.signup_go)
-
         login_btn.setOnClickListener {
             login()
         }

@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/lottie_layer"
+        android:background="#FFCE1F"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.hanks.htextview.fade.FadeTextView
+            android:id="@+id/anime_text"
+            android:textSize="23sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="160dp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            android:text="매칭된 상대에겐 예의를 지켜주세요!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/match_btn"
